@@ -170,6 +170,84 @@ td select{background:var(--surface2);border:1px solid var(--line);border-radius:
 .lockicon{width:56px;height:56px;border-radius:50%;margin:0 auto;display:grid;place-items:center;background:var(--surface2);color:var(--accent);border:1px solid var(--line)}
 .lockerr{color:var(--bad);margin-top:10px;font-size:14px}
 :root{padding-top:env(safe-area-inset-top,0px)}
+
+/* ---- centered hub layout ---- */
+.wrap{max-width:1160px}
+.pane{text-align:center}
+.nav-in{justify-content:center;gap:10px 28px}
+.brand{margin-right:0}
+.hero{display:flex;flex-direction:column;align-items:center;max-width:760px;margin:0 auto}
+.hero .lede{margin-inline:auto}
+.cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:24px}
+.cta .btn{text-decoration:none;color:var(--fg)}.cta .btn.primary{color:var(--accent-ink)}
+.hero .meta{justify-content:center;margin-top:16px}
+.facts{max-width:960px;margin-inline:auto}
+.fact{border-top:0;padding:16px 12px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.hubs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;max-width:960px;margin:28px auto 0}
+.hubcard{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px 20px;cursor:pointer}
+.hubcard:hover{border-color:var(--accent)}
+.hubcard b{font:700 19px/1.25 var(--font-display)}
+.hubcard span:last-child{color:var(--muted);font-size:14px}
+h2.sec{text-align:center;margin:48px 0 14px}
+.about{max-width:62ch;margin:0 auto 12px;text-align:center}
+.skills{justify-content:center}
+.pagetitle{font-size:clamp(32px,5vw,44px)}
+.pagesub{color:var(--muted);margin:6px 0 28px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;max-width:1020px;margin:0 auto}
+.pcard{display:flex;flex-direction:column;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px 22px;text-align:center;min-width:0}
+.pcard h3{font-size:21px}
+.pcard p{color:var(--muted)}
+.pcard .org{color:var(--fg)}
+.pcard .tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.pcard .btn{margin-top:auto}
+.status{font:500 11px var(--font-mono);color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+ul.lines{list-style:none;margin:0;padding:0;width:100%;text-align:center}
+ul.lines li{border-top:1px solid var(--line);padding:9px 0;margin:0;font-size:14.5px}
+.detail{display:none}
+.modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:rgba(0,0,0,.6)}
+.modalbox{width:min(640px,100%);max-height:88vh;overflow-y:auto;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:30px 26px;text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center}
+.modalbox .detail{display:flex;flex-direction:column;gap:12px;align-items:center}
+.modalbox .tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.tr-head{flex-direction:column;align-items:center;text-align:center;justify-content:center}
+.sync{justify-content:center;flex-wrap:wrap}
+.stats{display:flex;flex-wrap:wrap;justify-content:center}
+.stat{flex:1 1 150px;max-width:190px;text-align:center}
+.side{position:static;max-width:760px;margin:0 auto 22px;text-align:center}
+.na-item{text-align:center}
+.toolbar{justify-content:center}
+.toolbar input[type=search]{flex:0 1 260px}
+.pipe{flex-wrap:wrap;justify-content:center;overflow-x:visible}
+.col{flex:1 1 220px;max-width:270px;text-align:left}
+.tablewrap{max-width:100%;margin-inline:auto}
+.banner{text-align:center}
+.grid{display:block}
+
+/* ---- subtle gradients (CSS only) ---- */
+:root{--g-edge:linear-gradient(160deg,color-mix(in srgb,var(--accent) 42%,var(--line)),var(--line) 42%,color-mix(in srgb,var(--violet) 30%,var(--line)))}
+body{background-color:var(--bg);background-image:
+  radial-gradient(900px 520px at 50% -8%,color-mix(in srgb,var(--accent) 13%,transparent),transparent 70%),
+  radial-gradient(700px 420px at 100% 28%,color-mix(in srgb,var(--violet) 9%,transparent),transparent 70%),
+  radial-gradient(600px 400px at 0% 60%,color-mix(in srgb,var(--accent) 6%,transparent),transparent 70%);
+  background-repeat:no-repeat}
+.nav{background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 6%,var(--bg)),var(--bg))}
+.hero{position:relative;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:-60px -10% -40px;z-index:-1;pointer-events:none;
+  background:conic-gradient(from 200deg at 50% 45%,color-mix(in srgb,var(--accent) 20%,transparent),color-mix(in srgb,var(--violet) 16%,transparent),color-mix(in srgb,var(--accent) 6%,transparent),color-mix(in srgb,var(--violet) 14%,transparent),color-mix(in srgb,var(--accent) 20%,transparent));
+  -webkit-mask-image:radial-gradient(closest-side,#000 0%,transparent 100%);mask-image:radial-gradient(closest-side,#000 0%,transparent 100%);opacity:.75;filter:blur(24px)}
+@media (prefers-reduced-motion:no-preference){.hero::before{animation:glow 40s linear infinite}}
+@keyframes glow{to{transform:rotate(360deg)}}
+.pcard,.hubcard,.fact,.stat,.side,.lockbox,.col{border:1px solid transparent;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 7%,var(--surface)),var(--surface) 60%) padding-box,var(--g-edge) border-box}
+.hubcard:hover{background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 11%,var(--surface)),var(--surface) 60%) padding-box,linear-gradient(160deg,var(--accent),color-mix(in srgb,var(--violet) 60%,var(--line))) border-box}
+.card{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--accent) 28%,transparent)}
+.col.over{background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 14%,var(--surface)),var(--surface)) padding-box,linear-gradient(160deg,var(--accent),var(--violet)) border-box}
+.btn{background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 8%,var(--surface2)),var(--surface2))}
+.btn.primary,.cta .btn.primary{background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 62%,var(--violet)));border-color:transparent}
+.tab[aria-selected="true"]{background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 14%,var(--surface2)),var(--surface2));box-shadow:inset 0 -2px 0 var(--accent)}
+.seg button[aria-pressed="true"]{background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 14%,var(--surface2)),var(--surface2))}
+.hero h1,.pagetitle,.tr-head h2,.lockbox h2,.fact b{background:linear-gradient(180deg,var(--fg) 35%,color-mix(in srgb,var(--fg) 55%,var(--accent)));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--fg)}
+.lockicon{background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 22%,var(--surface2)),color-mix(in srgb,var(--violet) 18%,var(--surface2)))}
+.scrim{background:radial-gradient(800px 500px at 50% 0%,rgba(40,50,90,.35),rgba(0,0,0,.6))}
 </style>
 </head>
 <body>
@@ -187,15 +265,16 @@ td select{background:var(--surface2);border:1px solid var(--line);border-radius:
 <main class="wrap">
 <!-- HOME -->
 <section class="pane" id="pane-home">
- <div class="narrow">
   <div class="hero">
     <div class="role">DATA / BI ANALYST · CS STUDENT · FAYETTEVILLE, AR</div>
     <h1>Max Dodson</h1>
-    <p class="lede">I turn messy operational data into reports people use to make decisions. I spent 1.5 years as a contract data analyst at Hedgerow, and I am finishing a B.S. in Computer Science at the University of Arkansas in December 2027.</p>
-    <div class="meta">
-      <span>maxhenrydodson@gmail.com <button class="btn small" id="copyEmail">Copy</button></span>
-      <span><a href="https://github.com/maxhdodson" target="_blank" rel="noopener noreferrer">github.com/maxhdodson</a></span>
+    <p class="lede">I turn messy operational data into reports people use to make decisions. Data analyst at Hedgerow for 1.5 years, finishing a B.S. in Computer Science at the University of Arkansas in December 2027.</p>
+    <div class="cta">
+      <button class="btn primary" data-go="projects">View projects</button>
+      <button class="btn" data-go="resume">Resume</button>
+      <a class="btn" href="https://github.com/maxhdodson" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
+    <div class="meta">maxhenrydodson@gmail.com <button class="btn small" id="copyEmail">Copy</button></div>
   </div>
   <div class="facts">
     <div class="fact"><b>30+</b><span>projects analyzed at Hedgerow, across 300+ employees</span></div>
@@ -203,82 +282,96 @@ td select{background:var(--surface2);border:1px solid var(--line);border-radius:
     <div class="fact"><b>6,500+</b><span>records through a Python ETL in Studio Performance Analytics</span></div>
     <div class="fact"><b>200</b><span>members in the Young Life organization I lead at U of A</span></div>
   </div>
+  <div class="hubs">
+    <button class="hubcard" data-go="projects"><span class="label">Projects</span><b>Studio Performance Analytics, Hedgerow, Gyro</b><span>Dashboards, ETL and the work behind them</span></button>
+    <button class="hubcard" data-go="resume"><span class="label">Resume</span><b>Experience, education, skills</b><span>The short version on one page</span></button>
+    <button class="hubcard" data-go="tracker"><span class="label">Private</span><b>Job Tracker</b><span>Password required</span></button>
+  </div>
   <h2 class="sec">About</h2>
-  <p>I started in architecture studies at Washington University in St. Louis (2021 to 2023), worked through The Odin Project's Full Stack JavaScript curriculum in 2024, and moved into data work and a computer science degree at the University of Arkansas, with a minor in mathematics. At Hedgerow I built Power BI reports on labor, staffing and cost, and presented the findings to leadership.</p>
-  <p style="margin-top:12px">Outside of work I am president of Young Life at U of A, where I directly manage 8 volunteer leaders and plan weekly events for about 100 people.</p>
+  <p class="about">I started in architecture studies at Washington University in St. Louis (2021 to 2023), worked through The Odin Project's Full Stack JavaScript curriculum in 2024, and moved into data work and a computer science degree at the University of Arkansas, with a minor in mathematics. At Hedgerow I built Power BI reports on labor, staffing and cost, and presented the findings to leadership.</p>
+  <p class="about">Outside of work I am president of Young Life at U of A, where I directly manage 8 volunteer leaders and plan weekly events for about 100 people.</p>
   <h2 class="sec">Skills</h2>
   <div class="skills" id="skills"></div>
- </div>
 </section>
 
 <!-- PROJECTS -->
 <section class="pane" id="pane-projects" hidden>
- <div class="narrow">
-  <h2 style="font-size:34px">Projects</h2>
-  <div style="margin-top:18px">
-   <article class="proj">
-    <span class="status">2026 · Built end to end</span>
-    <h3>Studio Performance Analytics</h3>
-    <p>A multi-office BI dashboard for a simulated 220-employee, 7-office architecture and engineering firm with 72 projects. I wanted to own the upstream half of the work too, not only the reports at the end.</p>
-    <ul>
-      <li>6-table relational data model in SQLite.</li>
-      <li>Python ETL cleaned 6,500+ raw timekeeping records (date formats, duplicates, invalid values) to a 98%+ clean dataset.</li>
-      <li>Analytical SQL for staff utilization, project margin and schedule performance.</li>
-      <li>Interactive dashboard with sortable, filterable tables and utilization, margin and schedule-risk charts, scoped and documented on my own.</li>
-    </ul>
-    <div class="tags"><span class="chip">Python</span> <span class="chip">SQL (SQLite)</span> <span class="chip">Data modeling</span> <span class="chip">ETL</span> <span class="chip">Chart.js</span></div>
-    <div class="links"><span><a href="https://maxhdodson.github.io/Studio-Performance-Analytics/dashboard/" target="_blank" rel="noopener noreferrer">Live demo</a></span><span><a href="https://github.com/maxhdodson/Studio-Performance-Analytics" target="_blank" rel="noopener noreferrer">GitHub repo</a></span></div>
-   </article>
-   <article class="proj">
-    <span class="status">May 2024 to Dec 2025 · Contract, remote</span>
-    <h3>Hedgerow: workforce analytics in Power BI</h3>
-    <p>Data analyst contractor at an environmental health software company.</p>
-    <ul>
-      <li>Analyzed operational data across 30+ projects and 300+ employees, finding monthly and annual trends in labor hours, staffing and project performance.</li>
-      <li>Cleaned and transformed 2,000+ raw timekeeping records into employee- and project-level datasets.</li>
-      <li>Built interactive Power BI reports and calculations tracking project labor, staffing and costs.</li>
-      <li>Presented insights to leadership, supporting project planning, workforce allocation and budget decisions.</li>
-    </ul>
-    <div class="tags"><span class="chip">Power BI</span> <span class="chip">Excel</span> <span class="chip">Data cleaning</span></div>
-   </article>
-   <article class="proj">
-    <span class="status">In progress</span>
-    <h3>Gyro</h3>
-    <p>An AI-driven travel agent app built on Claude.</p>
-    <div class="links"><span><span class="todo">TODO</span>Link to be added when ready</span></div>
-   </article>
-   <article class="proj">
-    <span class="status">Planned</span>
-    <h3>Retail and sales analysis portfolio project</h3>
-    <p>A sales and retail analytics project aimed at sales-analyst roles.</p>
-   </article>
+  <h2 class="pagetitle">Projects</h2>
+  <p class="pagesub">Select a project to see the details.</p>
+  <div class="cards">
+    <article class="pcard">
+      <span class="status">2026 · Built end to end</span>
+      <h3>Studio Performance Analytics</h3>
+      <p>A multi-office BI dashboard for a simulated 220-employee, 7-office architecture and engineering firm.</p>
+      <div class="tags"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Chart.js</span></div>
+      <button class="btn" data-detail="p1">View details</button>
+      <div class="detail" id="p1" hidden>
+        <span class="status">2026 · Built end to end</span>
+        <h3>Studio Performance Analytics</h3>
+        <p>A multi-office BI dashboard for a simulated 220-employee, 7-office architecture and engineering firm with 72 projects. I wanted to own the upstream half of the work too, not only the reports at the end.</p>
+        <ul class="lines"><li>6-table relational data model in SQLite.</li><li>Python ETL cleaned 6,500+ raw timekeeping records (date formats, duplicates, invalid values) to a 98%+ clean dataset.</li><li>Analytical SQL for staff utilization, project margin and schedule performance.</li><li>Interactive dashboard with sortable, filterable tables and utilization, margin and schedule-risk charts, scoped and documented on my own.</li></ul>
+        <div class="tags"><span class="chip">Python</span><span class="chip">SQL (SQLite)</span><span class="chip">Data modeling</span><span class="chip">ETL</span><span class="chip">Chart.js</span></div>
+        <div class="cta"><a class="btn primary" href="https://maxhdodson.github.io/Studio-Performance-Analytics/dashboard/" target="_blank" rel="noopener noreferrer">Live demo</a><a class="btn" href="https://github.com/maxhdodson/Studio-Performance-Analytics" target="_blank" rel="noopener noreferrer">GitHub repo</a></div>
+      </div>
+    </article>
+    <article class="pcard">
+      <span class="status">May 2024 to Dec 2025 · Contract</span>
+      <h3>Hedgerow workforce analytics</h3>
+      <p>Power BI reporting on labor, staffing and cost across 30+ projects and 300+ employees.</p>
+      <div class="tags"><span class="chip">Power BI</span><span class="chip">Excel</span></div>
+      <button class="btn" data-detail="p2">View details</button>
+      <div class="detail" id="p2" hidden>
+        <span class="status">May 2024 to Dec 2025 · Contract, remote</span>
+        <h3>Hedgerow: workforce analytics in Power BI</h3>
+        <p>Data analyst contractor at an environmental health software company.</p>
+        <ul class="lines"><li>Analyzed operational data across 30+ projects and 300+ employees, finding monthly and annual trends in labor hours, staffing and project performance.</li><li>Cleaned and transformed 2,000+ raw timekeeping records into employee- and project-level datasets.</li><li>Built interactive Power BI reports and calculations tracking project labor, staffing and costs.</li><li>Presented insights to leadership, supporting project planning, workforce allocation and budget decisions.</li></ul>
+        <div class="tags"><span class="chip">Power BI</span><span class="chip">Excel</span><span class="chip">Data cleaning</span></div>
+      </div>
+    </article>
+    <article class="pcard">
+      <span class="status">In progress</span>
+      <h3>Gyro</h3>
+      <p>An AI-driven travel agent app built on Claude.</p>
+      <div class="tags"><span class="chip">In progress</span></div>
+      <button class="btn" data-detail="p3">View details</button>
+      <div class="detail" id="p3" hidden>
+        <span class="status">In progress</span>
+        <h3>Gyro</h3>
+        <p>An AI-driven travel agent app built on Claude. Still being built, so there is no public link yet.</p>
+      </div>
+    </article>
   </div>
- </div>
 </section>
 
 <!-- RESUME -->
 <section class="pane" id="pane-resume" hidden>
- <div class="narrow">
-  <h2 style="font-size:34px">Resume</h2>
-    <h2 class="sec">Experience</h2>
-  <div class="tl"><div class="when">May 2024 – Dec 2025</div><div>
-    <h3>Data Analyst Contractor</h3><div class="org">Hedgerow (Environmental Health Software) · Remote</div>
-    <ul><li>Analyzed operational data across 30+ projects and 300+ employees in Power BI, finding monthly and annual trends in labor hours, staffing and project performance.</li>
-    <li>Cleaned and transformed 2,000+ raw timekeeping records into employee- and project-level datasets.</li>
-    <li>Built interactive Power BI reports and calculations tracking project labor, staffing and costs.</li>
-    <li>Presented insights to leadership, supporting project planning, workforce allocation and budget decisions.</li></ul></div></div>
-  <div class="tl"><div class="when">Aug 2025 – present</div><div>
-    <h3>President / Volunteer Team Leader</h3><div class="org">Young Life at U of A</div>
-    <ul><li>Leads a 200-member organization and directly manages 8 volunteer leaders (delegation, scheduling, weekly meetings, performance check-ins).</li>
-    <li>Plans weekly events for about 100 attendees and coordinates with full-time NWA staff.</li>
-    <li>Recruits and mentors volunteers, and presents to groups of 100+.</li></ul></div></div>
-  <h2 class="sec">Education</h2>
-  <div class="tl"><div class="when">Expected Dec 2027</div><div><h3>B.S. Computer Science, Minor in Mathematics</h3><div class="org">University of Arkansas</div></div></div>
-  <div class="tl"><div class="when">2021 – 2023</div><div><h3>Architecture Studies</h3><div class="org">Washington University in St. Louis</div></div></div>
-  <div class="tl"><div class="when">2024</div><div><h3>Full Stack JavaScript curriculum</h3><div class="org">The Odin Project</div></div></div>
-  <h2 class="sec">Skills</h2>
-  <div class="skills" id="skills2"></div>
- </div>
+  <h2 class="pagetitle">Resume</h2>
+  <p class="pagesub">Experience, education and skills.</p>
+  <div class="cards">
+    <article class="pcard">
+      <span class="status">May 2024 – Dec 2025</span>
+      <h3>Data Analyst Contractor</h3>
+      <p class="org">Hedgerow (Environmental Health Software) · Remote</p>
+      <ul class="lines"><li>Analyzed operational data across 30+ projects and 300+ employees in Power BI, finding monthly and annual trends in labor hours, staffing and project performance.</li><li>Cleaned and transformed 2,000+ raw timekeeping records into employee- and project-level datasets.</li><li>Built interactive Power BI reports and calculations tracking project labor, staffing and costs.</li><li>Presented insights to leadership, supporting project planning, workforce allocation and budget decisions.</li></ul>
+    </article>
+    <article class="pcard">
+      <span class="status">Aug 2025 – present</span>
+      <h3>President / Volunteer Team Leader</h3>
+      <p class="org">Young Life at U of A</p>
+      <ul class="lines"><li>Leads a 200-member organization and directly manages 8 volunteer leaders (delegation, scheduling, weekly meetings, performance check-ins).</li><li>Plans weekly events for about 100 attendees and coordinates with full-time NWA staff.</li><li>Recruits and mentors volunteers, and presents to groups of 100+.</li></ul>
+    </article>
+    <article class="pcard">
+      <span class="status">Education</span>
+      <h3>University of Arkansas</h3>
+      <p class="org">B.S. Computer Science, Minor in Mathematics · expected Dec 2027</p>
+      <ul class="lines"><li>Washington University in St. Louis: Architecture Studies, 2021 – 2023</li><li>The Odin Project: Full Stack JavaScript curriculum, 2024</li></ul>
+    </article>
+    <article class="pcard">
+      <span class="status">Skills</span>
+      <h3>Tools</h3>
+      <div class="skills" id="skills2" style="margin-top:6px"></div>
+    </article>
+  </div>
 </section>
 
 <!-- TRACKER -->
@@ -304,6 +397,7 @@ td select{background:var(--surface2);border:1px solid var(--line);border-radius:
     </div>
     <div id="banner"></div>
     <div class="stats" id="stats"></div>
+    <aside class="side"><h3>Next actions</h3><div id="next"></div></aside>
     <div class="grid">
       <div style="min-width:0">
         <div class="toolbar">
@@ -317,7 +411,6 @@ td select{background:var(--surface2);border:1px solid var(--line);border-radius:
         </div>
         <div id="view"></div>
       </div>
-      <aside class="side"><h3>Next actions</h3><div id="next"></div></aside>
     </div>
   </div>
 </section>
@@ -610,6 +703,24 @@ function openDrawer(id){
 document.addEventListener("keydown",e=>{if(e.key==="Escape")$("#overlay").innerHTML=""});
 
 show((location.hash||"").slice(1)||"home");
+})();
+</script>
+<script>
+(function(){
+document.addEventListener("click",function(e){
+  var g=e.target.closest("[data-go]");
+  if(g){var t=document.querySelector('.tab[data-tab="'+g.dataset.go+'"]');if(t)t.click();return}
+  var d=e.target.closest("[data-detail]");
+  if(d){
+    var src=document.getElementById(d.dataset.detail);
+    var m=document.createElement("div");m.className="modal";m.id="pmodal";
+    m.innerHTML='<div class="modalbox" role="dialog" aria-modal="true"><div class="detail">'+src.innerHTML+'</div><button class="btn" id="pclose">Close</button></div>';
+    document.body.appendChild(m);document.getElementById("pclose").focus();return;
+  }
+  var m2=document.getElementById("pmodal");
+  if(m2&&(e.target===m2||e.target.id==="pclose"))m2.remove();
+});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){var m=document.getElementById("pmodal");if(m)m.remove()}});
 })();
 </script>
 </body>
